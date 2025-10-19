@@ -2,9 +2,6 @@
 
 Dự án này cài đặt thuật toán mã hóa dòng RC4 (Rivest Cipher 4) để mã hóa và giải mã chuỗi văn bản.
 
-## 📁 Cấu trúc dự án
-
-```
 rc4-project/
 ├── rc4.h              # Thuật toán RC4 cơ bản (KSA, PRGA)
 ├── rc4_encrypt.h      # Module mã hóa
@@ -13,15 +10,12 @@ rc4-project/
 ├── main_decrypt.c     # Chương trình giải mã
 ├── Makefile           # Build script
 └── README.md          # Tài liệu hướng dẫn
-```
 
-## 🔧 Yêu cầu hệ thống
 
 - GCC compiler (hoặc bất kỳ C compiler nào hỗ trợ C99)
 - Make (tùy chọn, để build tự động)
-- Linux/Unix/MacOS hoặc Windows với MinGW/Cygwin
 
-## 🚀 Hướng dẫn biên dịch và chạy
+##  Hướng dẫn biên dịch và chạy
 
 ### Cách 1: Sử dụng Makefile (Khuyến nghị)
 
@@ -32,7 +26,6 @@ make all
 # Chạy test tự động (mã hóa và giải mã)
 make test
 
-# Xóa các file build
 make clean
 ```
 
@@ -66,7 +59,7 @@ Output:
 - Đọc ciphertext từ file `ciphertext.bin`
 - In ra plaintext đã giải mã
 
-## 🧪 Test Vectors
+## Test Vectors
 
 ### Test 1: Văn bản mặc định
 **Input:**
@@ -98,15 +91,9 @@ Decrypted Text: Hanoi University of Science and Technology
 
 ### Hướng dẫn test thủ công
 
-Để test với các test vector trên, bạn cần sửa giá trị `plaintext_str` và `key_str` trong file `main_encrypt.c` và `main_decrypt.c`, sau đó biên dịch lại.
+Để test với các test vector,sửa giá trị `plaintext_str` và `key_str` trong file `main_encrypt.c` và `main_decrypt.c`, sau đó biên dịch lại.
 
-**Ví dụ:**
-```c
-const char *plaintext_str = "Plaintext";
-const char *key_str = "Key";
-```
-
-## 📚 Mô tả thuật toán RC4
+##  Mô tả thuật toán RC4
 
 RC4 là thuật toán mã hóa dòng (stream cipher) gồm 2 giai đoạn chính:
 
@@ -123,7 +110,7 @@ RC4 là thuật toán mã hóa dòng (stream cipher) gồm 2 giai đoạn chính
 - RC4 là thuật toán đối xứng: mã hóa và giải mã sử dụng cùng một quy trình
 - Kích thước khóa linh hoạt: 40-2048 bits (thường dùng 128 bits)
 
-## 🔐 Cấu trúc module
+##  Cấu trúc module
 
 ### rc4.h
 - `RC4_State`: Cấu trúc lưu trạng thái RC4
@@ -140,20 +127,3 @@ RC4 là thuật toán mã hóa dòng (stream cipher) gồm 2 giai đoạn chính
 - `rc4_decrypt()`: Hàm giải mã
 - `print_decrypted_text()`: In plaintext
 - `print_decrypted_hex()`: In plaintext dạng hex
-
-## ⚠️ Lưu ý bảo mật
-
-RC4 hiện không còn được khuyến nghị sử dụng trong các ứng dụng bảo mật thực tế do các lỗ hổng đã được phát hiện. Dự án này chỉ phục vụ mục đích học tập và nghiên cứu.
-
-**Các lỗ hổng đã biết:**
-- Bias trong keystream
-- Các cuộc tấn công thống kê
-- Không an toàn cho WEP và các giao thức cũ
-
-## 📝 Tác giả
-
-Dự án được phát triển cho môn học Mật mã học - Hanoi University of Science and Technology
-
-## 📄 License
-
-MIT License - Free for educational purposes
